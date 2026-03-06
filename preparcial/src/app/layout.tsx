@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ActorsProvider } from "@/context/ActorContext";
+import { MovieProvider } from "@/context/MovieContext";
 import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
-  title: "Actores",
-  description: "Aplicación para gestionar actores",
+  title: "Actores y Películas",
+  description: "Aplicación para gestionar actores y películas",
 };
 
 export default function RootLayout({
@@ -17,8 +18,10 @@ export default function RootLayout({
     <html lang="es">
       <body className="antialiased">
         <ActorsProvider>
-          <Navbar />
-          {children}
+          <MovieProvider>
+            <Navbar />
+            {children}
+          </MovieProvider>
         </ActorsProvider>
       </body>
     </html>
